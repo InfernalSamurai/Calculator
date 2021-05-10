@@ -1,30 +1,25 @@
 package ru.hei;
 
-enum Type
-{
-    NUMBER( "", 0 ),
-    OPEN_BRACKET( "(", 0 ),
-    CLOSE_BRACKET( ")", 0 ),
-    PLUS( "+", 1 ),
-    MINUS( "-", 1 ),
-    MULTIPLICATION( "*", 2 ),
-    DIVISION( "/", 2 );
+enum Type {
+    NUMBER("", 0),
+    OPEN_BRACKET("(", 0),
+    CLOSE_BRACKET(")", 0),
+    PLUS("+", 1),
+    MINUS("-", 1),
+    MULTIPLICATION("*", 2),
+    DIVISION("/", 2);
 
     private final String type;
     private final int precedence;
 
-    Type( String type, int precedence )
-    {
+    Type(String type, int precedence) {
         this.type = type;
         this.precedence = precedence;
     }
 
-    public static Type getType( String symbol )
-    {
-        for( Type value : Type.values() )
-        {
-            if( value.type.equals( symbol ) )
-            {
+    public static Type getType(String symbol) {
+        for (Type value : Type.values()) {
+            if (value.type.equals(symbol)) {
                 return value;
             }
         }
@@ -32,20 +27,16 @@ enum Type
         return NUMBER;
     }
 
-    public String getType()
-    {
+    public String getType() {
         return type;
     }
 
-    public int getPrecedence()
-    {
+    public int getPrecedence() {
         return precedence;
     }
 
-    public double operate( double first, double second )
-    {
-        switch( this )
-        {
+    public double operate(double first, double second) {
+        switch (this) {
             case PLUS:
                 return first + second;
 
