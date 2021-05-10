@@ -2,33 +2,33 @@ package ru.hei;
 
 import java.util.Scanner;
 
-public class Main
-{
-    public static void main( String[] args )
-    {
-        String input = readInput();
+public class Main {
+    public static void main(String[] args) {
+        while (true) {
+            String input = readInput();
 
-        String dijkstraSortedInput = dijkstraSort( input );
+            if (input.isEmpty()) {
+                System.exit(0);
+            }
 
-        double result = calculateResult( dijkstraSortedInput );
+            String dijkstraSortedInput = dijkstraSort(input);
 
-        System.out.printf( "%s%n%.2f%n", dijkstraSortedInput, result );
+            double result = calculateResult(dijkstraSortedInput);
+
+            System.out.printf("%s%n%.2f%n", dijkstraSortedInput, result);
+        }
     }
 
-    private static String readInput()
-    {
-        System.out.println( "Please enter expression and press 'Enter'" );
-        return new Scanner( System.in ).nextLine();
+    private static String readInput() {
+        System.out.println("Please enter expression and press 'Enter' or empty line for exit");
+        return new Scanner(System.in).nextLine();
     }
 
-    private static String dijkstraSort( String input )
-    {
-        return new Dijkstra( input ).sort();
+    private static String dijkstraSort(String input) {
+        return new Dijkstra(input).sort();
     }
 
-    private static double calculateResult( String input )
-    {
-        return new Calculator( input ).calculate();
+    private static double calculateResult(String input) {
+        return new Calculator(input).calculate();
     }
 }
-
