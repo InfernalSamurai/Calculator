@@ -18,7 +18,15 @@ class Calculator
             Type type = Type.getType( symbol );
             if( type == Type.NUMBER )
             {
-                stack.put( Double.parseDouble( symbol ) );
+                try
+                {
+                    stack.put( Double.parseDouble( symbol ) );
+                }
+                catch( NumberFormatException e )
+                {
+                    System.out.println("Не удалось преобразовать символ в число, проверьте правильность ввода!");
+                    System.exit( 1 );
+                }
             }
             else
             {
