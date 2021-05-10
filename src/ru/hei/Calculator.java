@@ -10,7 +10,7 @@ class Calculator {
     }
 
     public double calculate() {
-        for (String symbol : string.split("\\s")) {
+        for (String symbol : string.split("\\s+")) {
             Type type = Type.getType(symbol);
             if (type == Type.NUMBER) {
                 try {

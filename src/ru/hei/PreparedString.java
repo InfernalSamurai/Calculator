@@ -8,10 +8,10 @@ class PreparedString {
     }
 
     public String prepareAndGet() {
-        return string.replace("( - ", "( 0 - ")
-                .replace("( + ", "( 0 + ")
-                .replace(", - ", ",0 - ")
-                .replace(", + ", ", 0 + ")
+        return string.replaceAll("\\(\\s?-", "(0-")
+                .replaceAll("\\(\\s?\\+", "(0+")
+                .replaceAll("^-", "0-")
+                .replaceAll("^\\+", "0+")
                 .trim();
     }
 }

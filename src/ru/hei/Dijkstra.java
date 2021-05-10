@@ -12,7 +12,7 @@ class Dijkstra {
     public String sort() {
         StringBuilder result = new StringBuilder();
 
-        for (String symbol : string.split("")) {
+        for (String symbol : string.split("\\s?")) {
             Type type = Type.getType(symbol);
             switch (type) {
                 case NUMBER:
